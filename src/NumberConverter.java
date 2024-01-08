@@ -27,15 +27,54 @@ public class NumberConverter {
     }
 
     public int[] convertToDecimal() {
-        return null;
+        String nonConverted = "";
+        for(int i = 0; i < digits.length; i++) {
+            nonConverted = nonConverted + digits[i];
+        }
+        int notConvertedYet = Integer.parseInt(nonConverted);
+        int converted = notConvertedYet / 10 + notConvertedYet % 10;
+        String stringverted = Integer.toString(converted);
+        int[] conconverted = new int[stringverted.length()];
+        for(int i = 0; i < conconverted.length; i++) {
+            String digit = stringverted.substring(i, i + 1);
+            int d = Integer.parseInt(digit);
+            conconverted[i] = d;
+        }
+        return conconverted;
     }
 
     public int[] convertToBinary() {
-        return null;
+        String nonConverted = "";
+        for(int i = 0; i < digits.length; i++) {
+            nonConverted = nonConverted + digits[i];
+        }
+        int notConvertedYet = Integer.parseInt(nonConverted);
+        int converted = notConvertedYet / 2 + notConvertedYet % 2;
+        String stringverted = Integer.toString(converted);
+        int[] conconverted = new int[stringverted.length()];
+        for(int i = 0; i < conconverted.length; i++) {
+            String digit = stringverted.substring(i, i + 1);
+            int d = Integer.parseInt(digit);
+            conconverted[i] = d;
+        }
+        return conconverted;
     }
 
     public int[] convertToOctal() {
-        return null;
+        String nonConverted = "";
+        for(int i = 0; i < digits.length; i++) {
+            nonConverted = nonConverted + digits[i];
+        }
+        int notConvertedYet = Integer.parseInt(nonConverted);
+        int converted = notConvertedYet / 8 + notConvertedYet % 8;
+        String stringverted = Integer.toString(converted);
+        int[] conconverted = new int[stringverted.length()];
+        for(int i = 0; i < conconverted.length; i++) {
+            String digit = stringverted.substring(i, i + 1);
+            int d = Integer.parseInt(digit);
+            conconverted[i] = d;
+        }
+        return conconverted;
     }
 }
 

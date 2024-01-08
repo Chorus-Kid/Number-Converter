@@ -21,6 +21,21 @@ class ConverterRunner {
         int[] digits = nc.getDigits();
         System.out.println("\n\nDigit array: " + Arrays.toString(digits));
         System.out.println("Number: " + nc.displayOriginalNumber());
+        if (nc.base == 10) {
+            System.out.println("Binary number: " + Arrays.toString(nc.convertToBinary()));
+            System.out.println("Octal number: " + Arrays.toString(nc.convertToOctal()));
+        }
+        else if (nc.base == 2) {
+            System.out.println("Octal number: " + Arrays.toString(nc.convertToOctal()));
+            System.out.println("Decimal number: " + Arrays.toString(nc.convertToDecimal()));
+        }
+        else if (nc.base == 8) {
+            System.out.println("Binary number: " + Arrays.toString(nc.convertToBinary()));
+            System.out.println("Decimal number: " + Arrays.toString(nc.convertToDecimal()));
+        }
+        else {
+            System.out.println("Whar");
+        }
     }
 }
 
