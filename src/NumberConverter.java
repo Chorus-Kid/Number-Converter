@@ -22,59 +22,77 @@ public class NumberConverter {
         return o;
     }
 
+    public String displayConvertedNumber() {
+
+    }
+
     public int[] getDigits() {
         return digits;
     }
 
     public int[] convertToDecimal() {
-        String nonConverted = "";
+        String nonNonConverted = "";
         for(int i = 0; i < digits.length; i++) {
-            nonConverted = nonConverted + digits[i];
+            nonNonConverted = nonNonConverted + digits[i];
         }
-        int notConvertedYet = Integer.parseInt(nonConverted);
-        int converted = notConvertedYet / 10 + notConvertedYet % 10;
+        int nonConverted = Integer.parseInt(nonNonConverted);
+        int converted = 0;
+        while (nonConverted > 10) {
+            nonConverted = nonConverted - 10;
+            converted = converted + 10;
+        }
+        converted = converted + nonConverted;
         String stringverted = Integer.toString(converted);
-        int[] conconverted = new int[stringverted.length()];
-        for(int i = 0; i < conconverted.length; i++) {
+        int[] convertedArray = new int[stringverted.length()];
+        for(int i = 0; i < convertedArray.length; i++) {
             String digit = stringverted.substring(i, i + 1);
             int d = Integer.parseInt(digit);
-            conconverted[i] = d;
+            convertedArray[i] = d;
         }
-        return conconverted;
+        return convertedArray;
     }
 
     public int[] convertToBinary() {
-        String nonConverted = "";
+        String nonNonConverted = "";
         for(int i = 0; i < digits.length; i++) {
-            nonConverted = nonConverted + digits[i];
+            nonNonConverted = nonNonConverted + digits[i];
         }
-        int notConvertedYet = Integer.parseInt(nonConverted);
-        int converted = notConvertedYet / 2 + notConvertedYet % 2;
+        int nonConverted = Integer.parseInt(nonNonConverted);
+        int converted = 0;
+        while (nonConverted > 2) {
+            nonConverted = nonConverted - 2;
+            converted = converted + 10;
+        }
+        converted = converted + nonConverted;
         String stringverted = Integer.toString(converted);
-        int[] conconverted = new int[stringverted.length()];
-        for(int i = 0; i < conconverted.length; i++) {
+        int[] convertedArray = new int[stringverted.length()];
+        for(int i = 0; i < convertedArray.length; i++) {
             String digit = stringverted.substring(i, i + 1);
             int d = Integer.parseInt(digit);
-            conconverted[i] = d;
+            convertedArray[i] = d;
         }
-        return conconverted;
+        return convertedArray;
     }
 
     public int[] convertToOctal() {
-        String nonConverted = "";
+        String nonNonConverted = "";
         for(int i = 0; i < digits.length; i++) {
-            nonConverted = nonConverted + digits[i];
+            nonNonConverted = nonNonConverted + digits[i];
         }
-        int notConvertedYet = Integer.parseInt(nonConverted);
-        int converted = notConvertedYet / 8 + notConvertedYet % 8;
+        int nonConverted = Integer.parseInt(nonNonConverted);
+        int converted = 0;
+        while (nonConverted > 8) {
+            nonConverted = nonConverted - 8;
+            converted = converted + 10;
+        }
+        converted = converted + nonConverted;
         String stringverted = Integer.toString(converted);
-        int[] conconverted = new int[stringverted.length()];
-        for(int i = 0; i < conconverted.length; i++) {
+        int[] convertedArray = new int[stringverted.length()];
+        for(int i = 0; i < convertedArray.length; i++) {
             String digit = stringverted.substring(i, i + 1);
             int d = Integer.parseInt(digit);
-            conconverted[i] = d;
+            convertedArray[i] = d;
         }
-        return conconverted;
+        return convertedArray;
     }
 }
-
