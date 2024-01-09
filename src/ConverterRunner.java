@@ -18,20 +18,17 @@ class ConverterRunner {
         s.close();
 
         NumberConverter nc = new NumberConverter(n, base);
-        int[] digits = nc.getDigits();
-        System.out.println("\n\nDigit array: " + Arrays.toString(digits));
-        System.out.println("Number: " + nc.displayOriginalNumber());
         if (nc.base == 10) {
-            System.out.println("Binary number: " + Arrays.toString(nc.convertToBinary()));
-            System.out.println("Octal number: " + Arrays.toString(nc.convertToOctal()));
+            System.out.println("Binary number: " + nc.displayConvertedNumber(nc.convertToBinary()));
+            System.out.println("Octal number: " + nc.displayConvertedNumber(nc.convertToOctal()));
         }
         else if (nc.base == 2) {
-            System.out.println("Octal number: " + Arrays.toString(nc.convertToOctal()));
-            System.out.println("Decimal number: " + Arrays.toString(nc.convertToDecimal()));
+            System.out.println("Octal number: " + nc.displayConvertedNumber(nc.convertToOctal()));
+            System.out.println("Decimal number: " + nc.displayConvertedNumber(nc.convertToDecimal()));
         }
         else if (nc.base == 8) {
-            System.out.println("Binary number: " + Arrays.toString(nc.convertToBinary()));
-            System.out.println("Decimal number: " + Arrays.toString(nc.convertToDecimal()));
+            System.out.println("Binary number: " + nc.displayConvertedNumber(nc.convertToBinary()));
+            System.out.println("Decimal number: " + nc.displayConvertedNumber(nc.convertToBinary()));
         }
         else {
             System.out.println("Whar");

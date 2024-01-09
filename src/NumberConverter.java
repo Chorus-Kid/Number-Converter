@@ -22,8 +22,12 @@ public class NumberConverter {
         return o;
     }
 
-    public String displayConvertedNumber() {
-
+    public String displayConvertedNumber(int[] convertedNumber) {
+        String printed = "";
+        for(int i = 0; i < convertedNumber.length; i++) {
+            printed = printed + convertedNumber[i];
+        }
+        return printed;
     }
 
     public int[] getDigits() {
