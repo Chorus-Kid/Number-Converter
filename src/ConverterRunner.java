@@ -28,7 +28,7 @@ class ConverterRunner {
         }
         else if (nc.base == 8) {
             System.out.println("Binary number: " + nc.displayConvertedNumber(nc.convertToBinary()));
-            System.out.println("Decimal number: " + nc.displayConvertedNumber(nc.convertToBinary()));
+            System.out.println("Decimal number: " + nc.displayConvertedNumber(nc.convertToDecimal()));
         }
         else {
             System.out.println("Whar");
