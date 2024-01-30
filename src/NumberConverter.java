@@ -55,8 +55,9 @@ public class NumberConverter {
         else {
             int[] reversed = new int[digits.length];
             int reversedIndex = 0;
-            for (int i = digits.length - 1; i < reversed.length; i--) {
-                digits[i] = reversed[reversedIndex];
+            for (int i = digits.length - 1; i > -1; i--) {
+                reversed[reversedIndex] = digits[i];
+                reversedIndex++;
             }
             int converted = 0;
             for (int i = 1; i < reversed.length; i++) {
@@ -95,9 +96,9 @@ public class NumberConverter {
         shhhhDecimalvertedArray[shhhhDecimalvertedArray.length - 1] = shhhhDecimalvertedArray[shhhhDecimalvertedArray.length - 1] + digits[digits.length - 1];
         nonConverted = nonConverted + digits[digits.length - 1];
         String nonConvertedFR = "";
-        int temp = nonConverted;
+        double temp = nonConverted;
         while (temp > 1) {
-            int remainder = temp % 2;
+            int remainder = (int) (temp % 2);
             temp = temp / 2;
             String stringmainder = Integer.toString(remainder);
             nonConvertedFR = nonConvertedFR + stringmainder;
@@ -108,28 +109,79 @@ public class NumberConverter {
             int d = Integer.parseInt(digit);
             FINALLYCONVERTED[i] = d;
         }
-        return FINALLYCONVERTED;
+        int[] WAIT = new int[FINALLYCONVERTED.length];
+        int counter = 0;
+        for (int i = WAIT.length - 1; i > -1; i--) {
+            WAIT[counter] = FINALLYCONVERTED[i];
+            counter++;
+        }
+        return WAIT;
     }
 
     public int[] convertToOctal() {
-        String nonNonConverted = "";
-        for(int i = 0; i < digits.length; i++) {
-            nonNonConverted = nonNonConverted + digits[i];
+        if (base != 2) {
+            String nonNonConverted = "";
+            for (int i = 0; i < digits.length; i++) {
+                nonNonConverted = nonNonConverted + digits[i];
+            }
+            int nonConverted = Integer.parseInt(nonNonConverted);
+            int converted = 0;
+            while (nonConverted > 8) {
+                nonConverted = nonConverted - 8;
+                converted = converted + 10;
+            }
+            converted = converted + nonConverted;
+            String stringverted = Integer.toString(converted);
+            int[] convertedArray = new int[stringverted.length()];
+            for (int i = 0; i < convertedArray.length; i++) {
+                String digit = stringverted.substring(i, i + 1);
+                int d = Integer.parseInt(digit);
+                convertedArray[i] = d;
+            }
+            return convertedArray;
         }
-        int nonConverted = Integer.parseInt(nonNonConverted);
-        int converted = 0;
-        while (nonConverted > 8) {
-            nonConverted = nonConverted - 8;
-            converted = converted + 10;
+        else {
+            int[] reversed = new int[digits.length];
+            int reversedIndex = 0;
+            for (int i = digits.length - 1; i > -1; i--) {
+                reversed[reversedIndex] = digits[i];
+                reversedIndex++;
+            }
+            int converted = 0;
+            for (int i = 1; i < reversed.length; i++) {
+                if (reversed[i] == 1) {
+                    converted = converted + 2 * i;
+                }
+            }
+            if (reversed[0] == 1) {
+                converted = converted + 1;
+            }
+            String conververted = Integer.toString(converted);
+            int[] convertedArray = new int[conververted.length()];
+            for (int i = 0; i < convertedArray.length; i++) {
+                String digit = conververted.substring(i, i + 1);
+                int d = Integer.parseInt(digit);
+                convertedArray[i] = d;
+            }
+            String nonNonConverted = "";
+            for (int i = 0; i < digits.length; i++) {
+                nonNonConverted = nonNonConverted + digits[i];
+            }
+            int nonConverted = Integer.parseInt(nonNonConverted);
+            int tconverted = 0;
+            while (nonConverted > 8) {
+                nonConverted = nonConverted - 8;
+                tconverted = tconverted + 10;
+            }
+            converted = converted + nonConverted;
+            String stringverted = Integer.toString(converted);
+            int[] tconvertedArray = new int[stringverted.length()];
+            for (int i = 0; i < tconvertedArray.length; i++) {
+                String digit = stringverted.substring(i, i + 1);
+                int d = Integer.parseInt(digit);
+                tconvertedArray[i] = d;
+            }
+            return tconvertedArray;
         }
-        converted = converted + nonConverted;
-        String stringverted = Integer.toString(converted);
-        int[] convertedArray = new int[stringverted.length()];
-        for(int i = 0; i < convertedArray.length; i++) {
-            String digit = stringverted.substring(i, i + 1);
-            int d = Integer.parseInt(digit);
-            convertedArray[i] = d;
-        }
-        return convertedArray;
     }
 }
