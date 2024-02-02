@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class NumberConverter {
     int[] digits;
     int base;
@@ -53,20 +54,21 @@ public class NumberConverter {
             return convertedArray;
         }
         else {
-            int[] reversed = new int[digits.length];
-            int reversedIndex = 0;
-            for (int i = digits.length - 1; i > -1; i--) {
-                reversed[reversedIndex] = digits[i];
-                reversedIndex++;
-            }
             int converted = 0;
-            for (int i = 1; i < reversed.length; i++) {
-                if (reversed[i] == 1) {
-                    converted = converted + 2 * i;
-                }
+            int r;
+            int space = 0;
+            String numberButAsAString = "";
+            for (int i = 0; i < digits.length; i++) {
+                int digit = digits[i];
+                String digitAgain = Integer.toString(digit);
+                numberButAsAString = digitAgain + numberButAsAString;
             }
-            if (reversed[0] == 1) {
-                converted = converted + 1;
+            int number = Integer.parseInt(numberButAsAString);
+            while (number != 0) {
+                r = number % 10;
+                number = number / 10;
+                converted = converted + r * (int) Math.pow(2, space);
+                space++;
             }
             String conververted = Integer.toString(converted);
             int[] convertedArray = new int[conververted.length()];
